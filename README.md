@@ -7,3 +7,8 @@ or cite it.
 - Source: `B_embed.html`, prototype B, embed build
 - sha256: `05cc916b3212a340313e1e4c0bc1bdf24ef8bbd93c185a309c4b527277037017`
 - `index.html` is a byte-for-byte copy of that file. It is self-contained: no outside requests, fonts included.
+
+## lookup/
+
+`lookup/index.html` is a trial copy of the PEER Center earnings-threshold lookup page, made to test embedding it
+in a blog page with an iframe. sha256 prefix `985c92aa40e9`. Not the announced location; do not link to it or cite it.
