@@ -5,7 +5,7 @@ embedding it in a blog page with an iframe. It is **not** the announced location
 or cite it.
 
 - Source: `B_embed.html`, prototype B, embed build
-- sha256: `ed0257a91e64` (Nov. 4, 2026)
+- sha256: `17561c370d1e` (Nov. 5, 2026)
 - `index.html` is a byte-for-byte copy of that file. It is self-contained: no outside requests, fonts included.
 
 ## lookup/
