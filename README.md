@@ -11,4 +11,4 @@ or cite it.
 ## lookup/
 
 `lookup/index.html` is a trial copy of the PEER Center earnings-threshold lookup page, made to test embedding it
-in a blog page with an iframe. sha256 prefix `9138a1fa45b5`. Not the announced location; do not link to it or cite it.
+in a blog page with an iframe. sha256 prefix `219474425283`. Not the announced location; do not link to it or cite it.
