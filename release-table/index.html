@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Release Comparison Thresholds</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Semi+Condensed:wght@500;600&display=swap"><style>
+/* PEER exhibit page: white paper, navy ink, light-blue table heads, horizontal rules only. One light look by choice. */
+:root{--paper:#ffffff;--ink:#1e253e;--muted:#4f5a6b;--rule:#1e253e;--hair:#d5dbe2;--head:#88cfe4;--teal:#255977;
+  --part:#f4f7f9;--sans:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"Barlow Semi Condensed","Barlow",system-ui,sans-serif;color-scheme:light}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:600 12px/1.3 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+h1{margin:.3em 0 .2em;font:700 30px/1.15 var(--sans);text-wrap:balance}
+.dek{max-width:68ch;margin:0;color:var(--muted)}
+section{margin-top:44px;display:grid;gap:10px}
+h2{margin:0;font:700 19px/1.3 var(--sans);text-wrap:balance}
+h3{margin:14px 0 0;font:600 15.5px/1.35 var(--sans)}
+.scroll{overflow-x:auto;min-width:0;border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
+table.x{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+table.x thead th{background:var(--head);color:var(--ink);font:600 13.5px/1.3 var(--cond);text-align:left;vertical-align:bottom;
+  padding:9px 10px;border-bottom:1px solid var(--rule)}
+table.x td,table.x tbody th{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair)}
+table.x tbody th{font-weight:600}
+table.x .n{text-align:right;white-space:nowrap}
+table.x .sub{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
+table.x tbody tr:last-child td,table.x tbody tr:last-child th{border-bottom:0}
+.x1{min-width:980px}.x1 td,.x1 tbody th{font-size:14.5px}
+.x1 tr.rule td,.x1 tr.rule th{border-top:2px solid var(--rule)}
+.x1 tr.rule th{font-style:italic}
+.x1 tr.rule th .sub{font-style:normal}
+/* the three choices: numbered badges in the story's colors; cells shaded by answer, 2px dividers between choice columns */
+.x1 .bn{display:inline-block;width:20px;height:20px;margin-right:6px;border-radius:50%;font:700 12px/20px var(--sans);text-align:center;vertical-align:1px}
+.x1 thead th.ch,.x1 td.tint,.x1 td.ch{border-left:2px solid rgba(30,37,62,.28)}
+.x1 thead .rw{display:block;margin-top:2px;font:italic 400 12px/1.3 var(--sans);color:var(--muted)}
+.x1 td.tint{border-bottom:1px solid rgba(255,255,255,.9)}
+.x1 .chip{display:inline-block;margin-bottom:5px;padding:2px 9px;border-radius:11px;background:rgba(255,255,255,.55);font:600 12.5px/1.4 var(--cond);color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(30,37,62,.42)}
+.x1 .txt{display:block}
+.x2{min-width:900px}.x3{min-width:960px}
+.x2 td,.x2 tbody th,.x3 td,.x3 tbody th{font-size:14px}
+tr.part td,tr.part th{background:var(--part)}
+.note{max-width:92ch;margin:4px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.note b{color:var(--ink);font-weight:600}
+.count{font:500 14px/1.4 var(--sans);color:var(--muted);margin:0}
+@media (max-width:600px){h1{font-size:25px}}
+</style><style>
+.xm{min-width:1100px}
+.xm tr.peer th,.xm tr.peer td{border-bottom:2px solid var(--rule)}
+.xm td.imp b{font-weight:600}
+.xm td.imp .sub{margin-top:3px}
+.x1 .bn{display:inline-block;width:20px;height:20px;margin-right:6px;border-radius:50%;font:700 12px/20px var(--sans);text-align:center;vertical-align:1px}
+.x1 thead th.ch,.x1 td.tint,.x1 td.ch{border-left:2px solid rgba(30,37,62,.28)}
+.x1 td.tint{border-bottom:1px solid rgba(255,255,255,.9)}
+.x1 .chip{display:inline-block;margin-bottom:5px;padding:2px 9px;border-radius:11px;background:rgba(255,255,255,.55);font:600 12.5px/1.4 var(--cond);color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(30,37,62,.42)}
+.x1 .txt{display:block}
+</style><style>
+.xv{min-width:1180px}
+.xv td.thr{font-weight:600}
+/* Flat print: letter landscape, table at page width, cell tints kept */
+@media print{
+  @page{size:letter landscape;margin:.3in .4in}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:11px}
+  .wrap{max-width:none;padding:0}
+  .eyebrow{font-size:9.5px}
+  h1{font-size:18px;margin:.1em 0 0}
+  section{margin-top:8px;gap:5px}
+  h2{font-size:13.5px}
+  .scroll{overflow:visible}
+  .xv{min-width:0}
+  table.x thead th{font-size:11px;padding:5px 6px}
+  table.x td,table.x tbody th{font-size:11px;padding:4px 6px 5px;line-height:1.3}
+  table.x .sub{font-size:10px}
+  .x1 .chip{font-size:10.5px;margin-bottom:2px;padding:0 6px}
+  .x1 .bn{width:16px;height:16px;font-size:10px;line-height:16px;margin-right:4px}
+  .note{max-width:none;font-size:10px;line-height:1.3}
+  tr{break-inside:avoid}
+  thead{display:table-header-group}
+}
+</style><style>
+.xv .dl{display:inline-block;margin-left:4px;font:600 12.5px/1.4 var(--cond);color:var(--ink);white-space:nowrap}
+.xv td .pct{font-weight:400;color:var(--muted)}
+.xv thead th.n,.xv td.thr{text-align:center}
+@media print{.xv .dl{font-size:10.5px;margin-left:3px}
+  .xv thead th.n{white-space:normal;width:76px}
+  h1{display:none}
+  table.xv td,table.xv tbody th{padding:3px 6px 4px}
+  .xv .chip{margin-bottom:1px}
+  section{gap:3px}
+  .note{line-height:1.25}
+  @page{size:letter landscape;margin:.25in .4in}}
+</style><style>
+.wrap .note{max-width:none}
+.note a{color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.xv td .mv{display:block;font-size:11.5px;font-weight:400;color:var(--muted);white-space:nowrap}
+.xv .lab{display:block;font:500 13.5px/1.35 var(--sans)}
+.xv.fx{table-layout:fixed}
+/* Most cells are clear, so keep a hairline between rows (the shared tint rule is white-on-tint) */
+.xv.fx td.tint{border-bottom:1px solid var(--hair)}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
+.xv.fx tr.peer td.tint{border-bottom:2px solid var(--rule)}
+.wrap .key{color:var(--ink);font-size:13.5px}
+.asterisk-note{break-inside:avoid}
+.asterisk-symbol{font:400 calc(13px + 2pt)/1 var(--sans)}
+.xv .dollar-date,.xv .target-label{display:block;white-space:nowrap}
+.xv .dollar-year{white-space:nowrap}
+/* Keep badges in a fixed slot and align every heading to the same first line. */
+table.xv thead th{vertical-align:top;white-space:normal}
+.xv .column-heading{display:flex;align-items:flex-start;gap:6px;line-height:20px}
+.xv .column-title{display:block;min-width:0}
+.xv thead .bn{display:grid;place-items:center;flex:0 0 20px;margin:0;width:20px;height:20px;line-height:1}
+.xv thead th.n .column-heading{justify-content:center;text-align:center}
+.xv thead th.n{white-space:normal}
+.wrap .lead{color:var(--ink);font-size:13.5px;max-width:none}
+@media print{.xv td .mv{font-size:9.5px;line-height:1.2}.note a{color:var(--ink)}
+  @page{size:letter landscape;margin:.18in .3in}
+  table.xv thead th{font-size:10.5px;padding:4px 5px}
+  table.xv td,table.xv tbody th{font-size:10.5px;padding:2px 5px 3px;line-height:1.15}
+  table.xv .sub{font-size:9.5px}.xv .chip{font-size:10px;margin-bottom:1px}.xv .dl{font-size:10px}
+  .wrap .note{font-size:9.5px;line-height:1.18}
+  .xv .lab{font-size:11px;line-height:1.25}.wrap .lead{font-size:10.5px;line-height:1.25}
+  .eyebrow{display:none}h2{font-size:13px;margin:0}section{margin-top:0;gap:3px}
+  .asterisk-symbol{font-size:calc(9.5px + 2pt)}
+  .xv thead th.n{width:auto}
+  .xv .column-heading{gap:4px;line-height:16px}
+  .xv thead .bn{flex-basis:16px;width:16px;height:16px}}
+</style><base target="_blank">
+<style>/* embed copy: tighter margins inside the blog's frame */ .wrap{padding-block:8px 12px}</style>
+</head><body><main class="wrap">
+<h1>Table 1: How Department of Education Releases Compare With the Correct Methodology</h1>
+<section aria-labelledby="mh">
+<h2 id="mh">The National High-School Earnings Threshold in PEER Center Estimates and Each Department of Education Release</h2>
+<p class="note lead">Each estimate of median earnings below restricts their sample to adults aged 25–34 whose highest education is a high school diploma or equivalent and who are not enrolled in school, but they vary on five other key variables, as detailed in the table.</p>
+<p class="note key"><b>Key:</b> Shaded cells differ from the correct methodology. Unshaded cells either use the correct methodology or use a minor departure.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Exhibit table"><table class='x x1 xm xv fx'><colgroup><col style='width:18%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:14%'><col style='width:12%'></colgroup><thead><tr><th scope='col'><div class='column-heading'><span class='column-title'>Data release</span></div></th><th scope='col' class='ch'><div class='column-heading'><span class='bn' style='background:#7c4a64;color:#ffffff' aria-hidden='true'>1</span><span class='column-title'>Who is included as “working”</span></div></th><th scope='col' class='ch'><div class='column-heading'><span class='bn' style='background:#abb5c0;color:#1e253e' aria-hidden='true'>2</span><span class='column-title'>Earnings counted</span></div></th><th scope='col' class='ch'><div class='column-heading'><span class='bn' style='background:#68a835;color:#1e253e' aria-hidden='true'>3</span><span class='column-title'>Inflation adjustment<span class='target-label'>(constant dollars)</span></span></div></th><th scope='col' class='ch'><div class='column-heading'><span class='bn' style='background:#255977;color:#ffffff' aria-hidden='true'>4</span><span class='column-title'>Data source</span></div></th><th scope='col' class='ch'><div class='column-heading'><span class='bn' style='background:#f0c13a;color:#1e253e' aria-hidden='true'>5</span><span class='column-title'>ACS survey years</span></div></th><th scope='col' class='ch n'><div class='column-heading'><span class='column-title'>National high school earnings threshold</span></div></th></tr></thead><tbody><tr class='peer'><th scope='row'>Correct Methodology</th><td class='tint'><span class='lab'>Positive earnings</span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income</span></td><td class='tint'><span class='lab'>Reference period and survey year <span class='dollar-year'>(2024)</span></span></td><td class='tint'><span class='lab'>PUMS or IPUMS</span></td><td class='tint'><span class='lab'>2019–23 five-year ACS</span></td><td class='ch n thr'>$35,442</td></tr><tr><th scope='row'>FAFSA lower-earnings indicator<span class='sub'>December 7, 2025</span></th><td class='tint dep' style='background:#d3b4c5'><span class='lab'>Positive earnings + employed at survey*<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint dep' style='background:#d5dbe2'><span class='lab'>Wages and salary only<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint dep' style='background:#bfdca6'><span class='lab'>Survey year only<span class='dollar-date'>(June 2025)*</span><span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>PUMS or IPUMS*</span></td><td class='tint'><span class='lab'>2015–19 and 2016–20 five-year ACS; file medians averaged*</span></td><td class='ch n thr'>$35,490</td></tr><tr><th scope='row'><strong style='font-weight:700'>Program Performance Data</strong><span class='sub'>December 2025</span></th><td class='tint dep' style='background:#d3b4c5'><span class='lab'>Positive earnings + employed at survey<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income</span></td><td class='tint dep' style='background:#bfdca6'><span class='lab'>Survey year only <span class='dollar-year'>(2024)*</span><span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint dep' style='background:#86bad3'><span class='lab'>Erroneous IPUMS*<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>2019–23 five-year ACS</span></td><td class='ch n thr'>$34,808</td></tr><tr><th scope='row'>FAFSA lower-earnings indicator<span class='sub'>March 23, 2026</span></th><td class='tint'><span class='lab'>Positive earnings</span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income</span></td><td class='tint dep' style='background:#bfdca6'><span class='lab'>Survey year only<span class='dollar-date'>(January 2026)*</span><span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint dep' style='background:#86bad3'><span class='lab'>Erroneous IPUMS*<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>2019–23 five-year ACS</span></td><td class='ch n thr'>$34,635</td></tr><tr><th scope='row'>College Scorecard<span class='sub'>March 23, 2026</span></th><td class='tint'><span class='lab'>Positive earnings</span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income*</span></td><td class='tint dep' style='background:#bfdca6'><span class='lab'>Survey year only <span class='dollar-year'>(2024)*</span><span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint dep' style='background:#86bad3'><span class='lab'>Erroneous IPUMS*<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>2019–23 five-year ACS</span></td><td class='ch n thr'>$32,842</td></tr><tr><th scope='row'>College Scorecard<span class='sub'>June 10, 2026</span></th><td class='tint dep' style='background:#d3b4c5'><span class='lab'>Positive earnings + employed at survey<span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income*</span></td><td class='tint dep' style='background:#bfdca6'><span class='lab'>Survey year only <span class='dollar-year'>(2024)*</span><span class='sr-only'> (differs from the correct methodology)</span></span></td><td class='tint'><span class='lab'>IPUMS*</span></td><td class='tint'><span class='lab'>2019–23 five-year ACS</span></td><td class='ch n thr'>$36,082</td></tr><tr><th scope='row'>College Scorecard<span class='sub'>October 15, 2026</span></th><td class='tint'><span class='lab'>Positive earnings*</span></td><td class='tint'><span class='lab'>Wages, salary, and self-employment income*</span></td><td class='tint'><span class='lab'>Reference period and survey year <span class='dollar-year'>(2024)*</span></span></td><td class='tint'><span class='lab'>PUMS*</span></td><td class='tint'><span class='lab'>2020–24 five-year ACS</span></td><td class='ch n thr'>$35,678</td></tr></tbody></table></div>
+<p class="note"><b>Notes:</b> The first row’s threshold is PEER Center’s calculation using the correct methodology. “Erroneous IPUMS” means the 2019–23 IPUMS file before its March 18, 2026 income correction. The Program Performance Data are labeled December 2025, though ED replaced that file with an updated one on January 2, 2026.</p>
+<p class="note asterisk-note"><span class="asterisk-symbol" aria-hidden="true">*</span> Asterisks indicate methods inferred by testing alternative choices to reproduce the U.S. Department of Education’s published values.</p>
+<p class="note"><b>Source:</b> ED and Federal Student Aid releases and documentation, including the Program Performance Data technical appendix; 91 FR 40136 (July 1, 2026); Census Bureau ACS PUMS 5-year files; IPUMS USA; PEER Center calculations. Sources for the methods and dates: Scorecard’s <a href="https://collegescorecard.ed.gov/data/changelog/">change log</a>, FSA’s <a href="https://fsapartners.ed.gov/knowledge-center/library/electronic-announcements/2025-12-03/new-lower-earnings-indicator-fafsar-form">indicator announcement</a>, ED’s rule (<a href="https://www.federalregister.gov/documents/2026/07/01/2026-13286/accountability-in-higher-education-and-access-through-demand--driven-workforce-pell-student-tuition#:~:text=Individuals%20who%20reported%20that%20they%20were%20currently%20unemployed">footnote 58</a>), Census’s <a href="https://www2.census.gov/programs-surveys/acs/tech_docs/pums/2019_2023ACS_PUMS_User_Guide.pdf#page=17">PUMS user guide</a>, IPUMS’s <a href="https://usa.ipums.org/usa/acs_multyr.shtml#:~:text=The%20IPUMS%20pre%2Dadjustment%20applies%20only%20the%20CPI%2DU%20factor%3B%20the%20latter%20factor%20is%20available%20as%20a%20separate%20download%20in%20ADJUST">documentation</a> and <a href="https://usa.ipums.org/usa-action/revisions#:~:text=We%20fixed%20an%20error%20in%20the%20monetary%20values%20in%20the%202023%205%2Dyear%20American%20Community%20Survey">March 18, 2026 revision</a>, and December’s <a href="https://web.archive.org/web/20251217062409/https://studentaid.gov/sites/default/files/fafsa-earnings-data.xlsx">workbook definitions</a>, the <a href="https://studentaid.gov/data-center/school/earnings">March FAFSA workbook</a>, and the <a href="https://www.ed.gov/media/document/ahead-session-2-program-performance-data-technical-appendix-112901.pdf#page=7">Program Performance Data earnings definition</a>.</p>
+</section>
+</main><script>
+// When this page sits in an iframe, tell the host page its height so the frame can match it.
+if(window.parent!==window){const send=()=>parent.postMessage({'peer-embed-height':Math.ceil(document.documentElement.getBoundingClientRect().height),'peer-embed':'release-table'},'*');
+ new ResizeObserver(send).observe(document.documentElement);send();}
+</script>
+</body></html>
